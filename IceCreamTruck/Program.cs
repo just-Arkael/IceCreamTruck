@@ -125,7 +125,7 @@ namespace IceCreamTruck
             truck1.ShowMenu();
             Console.WriteLine("Which one do I buy?");
             choice = Console.ReadLine();
-            if (choice != "None")
+            if (choice != "None" && choice != "Next")
             {
                 flavour = truck1.BuyIceCream(choice, ref money, ref happiness);
                 if (flavour == favflavour)
@@ -151,7 +151,12 @@ namespace IceCreamTruck
                     NextDialogue();
                     Console.WriteLine("Here's the next truck!");
                     NextDialogue();
-
+                    if (currenttruck == 2)
+                    {
+                        Console.WriteLine("Remember, your favourite flavour is {0}", favflavour);
+                        NextDialogue();
+                    }
+                    goto Reset;
                 }
                 else
                 {
@@ -161,7 +166,7 @@ namespace IceCreamTruck
                     NextDialogue();
                     if (happiness < 200)
                     {
-                        Console.WriteLine("Unfortunatelly, you didn't get much...");
+                        Console.WriteLine("Unfortunatelly, you didn't get much icecream today...");
                         NextDialogue();
                         Console.WriteLine("Maybe tomorrow will be a better day!");
                         NextDialogue();
