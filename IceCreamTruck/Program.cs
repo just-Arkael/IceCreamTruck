@@ -27,7 +27,7 @@ namespace IceCreamTruck
             Random rand = new Random();
             double money = rand.Next(10);
             money /= 10;
-            money += rand.Next(100) + 150;
+            money += rand.Next(100) + 100;
             double happiness = 10;
             string favflavour = "Vanilla";
             string choice;
@@ -128,10 +128,11 @@ namespace IceCreamTruck
             Console.WriteLine("My cash: {0}", money);
             Console.WriteLine();
             trucks[currenttruck].ShowMenu();
-            Console.WriteLine("Which one do I buy?");
+            Console.WriteLine("Which one do you buy?");
             choice = Console.ReadLine();
-            if (choice != "None" && choice != "Next")
+            if (choice != "None" && choice != "Next" && choice != "none" && choice != "next")
             {
+                Console.WriteLine("May I have one {0} icecream, please?", choice);
                 flavour = trucks[currenttruck].BuyIceCream(choice, ref money, ref happiness);
                 if (flavour == favflavour)
                 {
@@ -145,7 +146,8 @@ namespace IceCreamTruck
                 currenttruck++;
                 if (currenttruck < 5)
                 {
-                    Console.Clear();
+                    Console.WriteLine("You say goodbye to the icecream man and go your way.");
+                    NextDialogue();
                     Console.WriteLine("There's more ice cream trucks in the town.");
                     NextDialogue();
                     Console.WriteLine("You can still get some more icecream!");
@@ -174,7 +176,7 @@ namespace IceCreamTruck
                         Console.WriteLine("Unfortunatelly, you didn't get much icecream today...");
                         NextDialogue();
                         Console.WriteLine("Maybe tomorrow will be a better day!");
-                        NextDialogue();
+                        Console.ReadKey();
                     }
                     if (happiness >= 200 && happiness < 400)
                     {
@@ -183,7 +185,7 @@ namespace IceCreamTruck
                         Console.WriteLine("But some is better than none!");
                         NextDialogue();
                         Console.WriteLine("You could buy some more tomorrow!");
-                        NextDialogue();
+                        Console.ReadKey();
                     }
                     if (happiness >= 400 && happiness < 600)
                     {
@@ -192,7 +194,7 @@ namespace IceCreamTruck
                         Console.WriteLine("You got some icecream and it made your day!");
                         NextDialogue();
                         Console.WriteLine("You can't wait to hopefully get some more tomorrow.");
-                        NextDialogue();
+                        Console.ReadKey();
                     }
                     if (happiness >= 600 && happiness < 800)
                     {
@@ -201,7 +203,7 @@ namespace IceCreamTruck
                         Console.WriteLine("You bought plenty of icecream! It was sooooo good!");
                         NextDialogue();
                         Console.WriteLine("This memory should last for weeks!");
-                        NextDialogue();
+                        Console.ReadKey();
                     }
                     if (happiness >= 800 && happiness < 1000)
                     {
@@ -212,7 +214,7 @@ namespace IceCreamTruck
                         Console.WriteLine("You should do this more often.");
                         NextDialogue();
                         Console.WriteLine("What a perfect day!");
-                        NextDialogue();
+                        Console.ReadKey();
                     }
                     if (happiness >= 1000)
                     {
@@ -223,7 +225,7 @@ namespace IceCreamTruck
                         Console.WriteLine("Your happiness is through the roof!");
                         NextDialogue();
                         Console.WriteLine("Today was the best day of your entire life!");
-                        NextDialogue();
+                        Console.ReadKey();
                     }
 
 
