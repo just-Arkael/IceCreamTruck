@@ -337,9 +337,10 @@ namespace IceCreamTruck
             {
                 string result = "null";
                 int choice = 0;
+                flavour = flavour.ToUpper();
                 for (int i = 0; i < 5 || i < 5 && choice > 0 && invAmount[choice - 1] == 0; i++)
                 {
-                    if (inventory[i].Flavour == flavour && choice == 0 || choice > 0 && invAmount[choice - 1] == 0 && inventory[i].Flavour == flavour)
+                    if (inventory[i].Flavour.ToUpper() == flavour && choice == 0 || choice > 0 && invAmount[choice - 1] == 0 && inventory[i].Flavour.ToUpper() == flavour)
                     {
                         choice = i + 1;
                     }   
