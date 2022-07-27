@@ -24,8 +24,10 @@ namespace IceCreamTruck
             money /= 10;
             money += rand.Next(100) + 150;
             double happiness = 10;
-            string flavour;
             string favflavour = "Vanilla";
+            string choice;
+            string flavour;
+            byte currenttruck = 0;
 
             switch (rand.Next(10))
             {
@@ -85,6 +87,11 @@ namespace IceCreamTruck
             NextDialogue();
             Console.WriteLine("Now, go get that icecream!");
             NextDialogue();
+            Console.WriteLine("...");
+            NextDialogue();
+            Console.WriteLine("Here comes the first truck.");
+            NextDialogue();
+            Console.WriteLine("When you're done, type ''None'' or ''Next'' to move on to the next truck!");
 
 
         Reset:
@@ -117,13 +124,102 @@ namespace IceCreamTruck
             Console.WriteLine();
             truck1.ShowMenu();
             Console.WriteLine("Which one do I buy?");
-            flavour = truck1.BuyIceCream(Console.ReadLine(), ref money, ref happiness);
-            if (flavour == favflavour)
+            choice = Console.ReadLine();
+            if (choice != "None")
             {
-                happiness += 15;
+                flavour = truck1.BuyIceCream(choice, ref money, ref happiness);
+                if (flavour == favflavour)
+                {
+                    happiness += 15;
+                }
+                NextDialogue();
+                goto Reset;
             }
-            NextDialogue();
-            goto Reset;
+            else
+            {
+                currenttruck++;
+                if (currenttruck < 5)
+                {
+                    Console.Clear();
+                    Console.WriteLine("There's more ice cream trucks in the town.");
+                    NextDialogue();
+                    Console.WriteLine("You can still get some more icecream!");
+                    NextDialogue();
+                    Console.WriteLine("You have {0} cash left...", money);
+                    NextDialogue();
+                    Console.WriteLine("...");
+                    NextDialogue();
+                    Console.WriteLine("Here's the next truck!");
+                    NextDialogue();
+
+                }
+                else
+                {
+                    Console.WriteLine("After a long day of looking for icecream...");
+                    NextDialogue();
+                    Console.WriteLine("You return home!");
+                    NextDialogue();
+                    if (happiness < 200)
+                    {
+                        Console.WriteLine("Unfortunatelly, you didn't get much...");
+                        NextDialogue();
+                        Console.WriteLine("Maybe tomorrow will be a better day!");
+                        NextDialogue();
+                    }
+                    if (happiness >= 200 && happiness < 400)
+                    {
+                        Console.WriteLine("You couldn't get much icecream today.");
+                        NextDialogue();
+                        Console.WriteLine("But some is better than none!");
+                        NextDialogue();
+                        Console.WriteLine("You could buy some more tomorrow!");
+                        NextDialogue();
+                    }
+                    if (happiness >= 400 && happiness < 600)
+                    {
+                        Console.WriteLine("Today was awesome!");
+                        NextDialogue();
+                        Console.WriteLine("You got some icecream and it made your day!");
+                        NextDialogue();
+                        Console.WriteLine("You can't wait to hopefully get some more tomorrow.");
+                        NextDialogue();
+                    }
+                    if (happiness >= 600 && happiness < 800)
+                    {
+                        Console.WriteLine("What a perfect day today was!");
+                        NextDialogue();
+                        Console.WriteLine("You bought plenty of icecream! It was sooooo good!");
+                        NextDialogue();
+                        Console.WriteLine("This memory should last for weeks!");
+                        NextDialogue();
+                    }
+                    if (happiness >= 800 && happiness < 1000)
+                    {
+                        Console.WriteLine("You lay down and can't help but smile from ear to ear!");
+                        NextDialogue();
+                        Console.WriteLine("You got so much icecream today!");
+                        NextDialogue();
+                        Console.WriteLine("You should do this more often.");
+                        NextDialogue();
+                        Console.WriteLine("What a perfect day!");
+                        NextDialogue();
+                    }
+                    if (happiness >= 1000)
+                    {
+                        Console.WriteLine("Today was PERFECT!");
+                        NextDialogue();
+                        Console.WriteLine("You ate soooo much icecream!");
+                        NextDialogue();
+                        Console.WriteLine("Your happiness is through the roof!");
+                        NextDialogue();
+                        Console.WriteLine("Today was the best day of your entire life!");
+                        NextDialogue();
+                    }
+
+
+                }
+                
+            }
 
 
         }
