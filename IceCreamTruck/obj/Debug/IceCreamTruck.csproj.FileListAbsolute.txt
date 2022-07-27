@@ -1,0 +1,8 @@
+C:\Users\Arkael\source\repos\IceCreamTruck\IceCreamTruck\bin\Debug\IceCreamTruck.exe.config
+C:\Users\Arkael\source\repos\IceCreamTruck\IceCreamTruck\bin\Debug\IceCreamTruck.exe
+C:\Users\Arkael\source\repos\IceCreamTruck\IceCreamTruck\bin\Debug\IceCreamTruck.pdb
+C:\Users\Arkael\source\repos\IceCreamTruck\IceCreamTruck\obj\Debug\IceCreamTruck.csproj.AssemblyReference.cache
+C:\Users\Arkael\source\repos\IceCreamTruck\IceCreamTruck\obj\Debug\IceCreamTruck.csproj.SuggestedBindingRedirects.cache
+C:\Users\Arkael\source\repos\IceCreamTruck\IceCreamTruck\obj\Debug\IceCreamTruck.csproj.CoreCompileInputs.cache
+C:\Users\Arkael\source\repos\IceCreamTruck\IceCreamTruck\obj\Debug\IceCreamTruck.exe
+C:\Users\Arkael\source\repos\IceCreamTruck\IceCreamTruck\obj\Debug\IceCreamTruck.pdb
