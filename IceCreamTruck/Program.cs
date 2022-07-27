@@ -19,6 +19,11 @@ namespace IceCreamTruck
         static void Main(string[] args)
         {
             IceCreamTruck truck1 = new IceCreamTruck();
+            IceCreamTruck truck2 = new IceCreamTruck();
+            IceCreamTruck truck3 = new IceCreamTruck();
+            IceCreamTruck truck4 = new IceCreamTruck();
+            IceCreamTruck truck5 = new IceCreamTruck();
+            IceCreamTruck[] trucks = new IceCreamTruck[] {truck1, truck2, truck3, truck4, truck5};
             Random rand = new Random();
             double money = rand.Next(10);
             money /= 10;
@@ -122,12 +127,12 @@ namespace IceCreamTruck
             Console.WriteLine("*--------------------------------------------------*");
             Console.WriteLine("My cash: {0}", money);
             Console.WriteLine();
-            truck1.ShowMenu();
+            trucks[currenttruck].ShowMenu();
             Console.WriteLine("Which one do I buy?");
             choice = Console.ReadLine();
             if (choice != "None" && choice != "Next")
             {
-                flavour = truck1.BuyIceCream(choice, ref money, ref happiness);
+                flavour = trucks[currenttruck].BuyIceCream(choice, ref money, ref happiness);
                 if (flavour == favflavour)
                 {
                     happiness += 15;
@@ -330,9 +335,9 @@ namespace IceCreamTruck
             {
                 string result = "null";
                 int choice = 0;
-                for (int i = 0; i < 5 && choice == 0; i++)
+                for (int i = 0; i < 5 || i < 5 && choice > 0 && invAmount[choice - 1] == 0; i++)
                 {
-                    if (inventory[i].Flavour == flavour)
+                    if (inventory[i].Flavour == flavour && choice == 0 || choice > 0 && invAmount[choice - 1] == 0 && inventory[i].Flavour == flavour)
                     {
                         choice = i + 1;
                     }   
